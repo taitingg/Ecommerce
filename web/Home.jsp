@@ -54,16 +54,6 @@
                         </c:forEach>
                     </div>
                     <button onclick="loadMore()" class="btn btn-primary">Load More</button>
-                    <div class="clearfix">
-                    <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-                    <ul class="pagination">
-                        <li class="page-item disabled"><a href="#">Previous</a></li>
-                        <c:forEach begin="1" end="${endP}" var="i">
-                         <li class="page-item active" ${tag == i?"active":""}"><a href="listProduct?index=${i}" class="page-link">${i}</a></li>
-                        </c:forEach>
-                        <li class="page-item"><a href="#" class="page-link">Next</a></li>
-                    </ul>
-                </div>
                 </div>
                 
             </div>

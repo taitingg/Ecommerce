@@ -30,13 +30,29 @@ public class ManagerControl extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
         Account a = (Account) session.getAttribute("acc");
+        String indexPage = request.getParameter("index");
+        //String i_d = request.getParameter("id");
         int id = a.getId();
         DAO dao = new DAO();
+        if (indexPage == null) {
+            indexPage = "1";
+        }
+        int index = Integer.parseInt(indexPage);
+        int count = dao.getTotalProduct();
+        int endPage = count / 5;
+        if (count % 5 != 0) {
+            endPage++;
+        }
+        
         List<Product> list = dao.getProductBySellID(id);
         List<Category> listC = dao.getAllCategory();
-        
+        List<Product> listt = dao.pagingProduct(index);
+         
+        request.setAttribute("endP", endPage);
+        request.setAttribute("tag", index);
         request.setAttribute("listCC", listC);
-        request.setAttribute("listP", list);
+        request.setAttribute("listP", listt);
+       // request.setAttribute("listP", listt);
         request.getRequestDispatcher("ManagerProduct.jsp").forward(request, response);
     }
 

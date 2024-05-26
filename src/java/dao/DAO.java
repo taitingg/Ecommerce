@@ -205,7 +205,7 @@ public class DAO {
     }
 
     public void signup(String user, String pass) {
-        String query = "insert into account values(?,?,0,0)";
+        String query = "insert into account values(?,?,?,0)";
         try {
             conn = new DBContext().getConnection();//mo ket noi voi sql
             ps = conn.prepareStatement(query);
@@ -321,19 +321,20 @@ public class DAO {
     }
 
     public List<Product> pagingProduct(int index) {
-        List<Product> list = new ArrayList<>();
+        List<Product> listt = new ArrayList<>();
         String query = "SELECT *\n"
-                + "  FROM product\n"
-                + " ORDER BY id\n"
+                + "  FROM product where sell_ID = ?\n"
+                + " ORDER BY sell_ID\n"
                 + "OFFSET ? ROWS\n"
                 + " FETCH NEXT 5 ROWS ONLY;";
         try {
             conn = new DBContext().getConnection();//mo ket noi voi sql
             ps = conn.prepareStatement(query);
+            //ps.setString(1, id);
             ps.setInt(1, (index-1)*5);
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new Product(rs.getInt(1),
+                listt.add(new Product(rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getDouble(4),
@@ -342,7 +343,7 @@ public class DAO {
             }
         } catch (Exception e) {
         }
-        return list;
+        return listt;
     }
 
     public static void main(String[] args) {

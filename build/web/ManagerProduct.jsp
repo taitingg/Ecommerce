@@ -82,11 +82,16 @@
                 <div class="clearfix">
                     <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
                     <ul class="pagination">
-                        <li class="page-item disabled"><a href="#">Previous</a></li>
-                        <c:forEach begin="1" end="${endP}" var="i">
-                         <li class="page-item" ${tag == i ? "active":""}"><a href="listProduct?index=${i}" class="page-link">${i}</a></li>
-                        </c:forEach>
-                        <li class="page-item"><a href="#" class="page-link">Next</a></li>
+                        <c:if test = "${tag > 1}">
+                            <li class="page-item disabled"><a href="manager?index=${tag - 1}">Previous</a></li>
+                            </c:if>
+                            <c:forEach begin="1" end="${endP}" var="i">
+                            <li class="page-item ${tag == i ? "active":""}"><a href="manager?index=${i}" class="page-link">${i}</a></li>
+                            </c:forEach>
+                            <c:if test = "${tag < endP}">
+                            <li class="page-item"><a href="manager?index=${tag + 1}" class="page-link">Next</a></li>
+                            </c:if>
+
                     </ul>
                 </div>
                 <a href="home"><button type="button" class="btn btn-primary">Back to home</button></a>
@@ -198,7 +203,7 @@
         </div>
         <script src="js/manager.js" type="text/javascript"></script>
         <script>
-               
+
         </script>
     </body>
 </html>

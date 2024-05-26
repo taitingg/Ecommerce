@@ -6,6 +6,9 @@
             <file>file:/D:/JavaWeb/Project_banhang/web/Menu.jsp</file>
             <file>file:/D:/JavaWeb/Project_banhang/src/java/dao/DAO.java</file>
             <file>file:/D:/JavaWeb/Project_banhang/web/Home.jsp</file>
+            <file>file:/D:/JavaWeb/Project_banhang/src/java/control/SignupControl.java</file>
+            <file>file:/D:/JavaWeb/Project_banhang/src/java/control/ManagerControl.java</file>
+            <file>file:/D:/JavaWeb/Project_banhang/web/Login.jsp</file>
             <file>file:/D:/JavaWeb/Project_banhang/web/ManagerProduct.jsp</file>
             <file>file:/D:/JavaWeb/Project_banhang/src/java/control/listProduct.java</file>
         </group>

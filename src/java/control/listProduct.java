@@ -28,7 +28,7 @@ public class listProduct extends HttpServlet {
       String indexPage = request.getParameter("index");
       if(indexPage == null){
           indexPage = "1";
-      }
+      } 
       int index = Integer.parseInt(indexPage);
       DAO dao = new DAO();
       int count = dao.getTotalProduct();

@@ -40,7 +40,13 @@
                 <input name="repass" type="password" id="user-repeatpass" class="form-control" placeholder="Repeat Password" required autofocus="">
                 <p class="text-danger">${mess}</p>
                 <button class="btn btn-primary btn-block" type="submit"><i class="fas fa-user-plus"></i> Sign Up</button>
+                <input type="radio" id="role_seller" name="role" value="seller">
+                <label for="role_seller">Seller</label><br>
+
+                <input type="radio" id="role_customer" name="role" value="customer">
+                <label for="role_customer">Customer</label><br><br>
                 <a href="#" id="cancel_signup"><i class="fas fa-angle-left"></i> Back</a>
+                
             </form>
             <br>
 
