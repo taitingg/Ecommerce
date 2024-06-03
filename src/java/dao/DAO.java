@@ -205,7 +205,7 @@ public class DAO {
     }
 
     public void signup(String user, String pass) {
-        String query = "insert into account values(?,?,?,0)";
+        String query = "insert into account values(?,?,0,0)";
         try {
             conn = new DBContext().getConnection();//mo ket noi voi sql
             ps = conn.prepareStatement(query);
